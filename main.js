@@ -51,6 +51,9 @@ function animate() {
     for(let i of cubes){
         i.rotateX(Math.random() * 0.02)
         i.rotateY(Math.random() * 0.02)
+
+        if(Math.random() < .1)
+            i.translateZ(0.02)
     }
 
     renderer.render(scene, camera)
