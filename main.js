@@ -6,6 +6,8 @@ let renderer = new THREE.WebGLRenderer({antialias: true})
 // Set up components
 camera.position.z = 5
 renderer.setSize(window.innerWidth, window.innerHeight)
+
+// Add to the document, and add a window resize listener
 document.body.appendChild(renderer.domElement)
 window.onresize = () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -15,7 +17,7 @@ window.onresize = () => {
 }
 
 // Geometry
-let geometry = new THREE.BoxGeometry()
+let geometry = new THREE.BoxBufferGeometry()
 let material = new THREE.MeshNormalMaterial()
 let cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
@@ -25,6 +27,7 @@ function animate(){
     requestAnimationFrame(animate)
 
     cube.rotateY(0.01)
+    cube.rotateX(0.01)
 
     renderer.render(scene, camera)
 }
